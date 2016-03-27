@@ -26,15 +26,14 @@
         
         <!-- the Script to init graph library and to provide new data -->
         <script>
-            //initWebGlGraph(3, 'graph1_canvas:2, graph2_canvas:1, graph3_canvas:1');
-            initWebGlGraph(2, 'graph1_canvas:2');
+            initWebGlGraph('graph1_canvas:2, graph2_canvas:1, graph3_canvas:1');
             
             var indexer = 0;
             function genFakeData() {
                 ++indexer;
                 WebGLGraphs[0].addPoint(indexer, [10 * Math.sin(indexer / 100.0), Math.cos(indexer / 100.0) ] );
-               // WebGLGraphs[1].addPoint(5*indexer, [3 * Math.sin(indexer / 100.0) ] );
-               // WebGLGraphs[2].addPoint(50*indexer, [3 * Math.sin(indexer / 100.0) ] );
+                WebGLGraphs[1].addPoint(5*indexer, [3 * Math.sqrt(indexer / 100.0) ] );
+                WebGLGraphs[2].addPoint(50*indexer, [3 * Math.tan(indexer / 100.0) ] );
             }
         
         setInterval(genFakeData, 100);
