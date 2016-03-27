@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- This is the WebGLGraph Example
+ developed for the HDrive Webinterface at www.henschel-robotics.ch
+ This code is only running with a Webserver. Use WebMatrix or IIS on Windows or pyton -m SimpleHTTPServer 8000 on MAC
+ -->
+
+<html lang="en">
+    <head>
+        <title>WebGLGraph</title>
+        
+        <!-- these files are part of the three.js framework https://github.com/mrdoob -->
+        <script src="three.min.js"></script>
+        
+        <!-- this is the text2d framework https://github.com/gamestdio -->
+        <script src="three-text2d.min.js"></script>
+    </head>
+    
+    <body>
+        <!-- the container for your graph -->
+        <div id="graph1_canvas" name="graph1" style="width: 1000px; height: 300px;" />
+        <div id="graph2_canvas" name="graph2"  style="width: 400px; height: 300px;" />
+        <div id="graph3_canvas" name="graph3"  style="width: 400px; height: 400px;" />
+        
+        <!-- this is the webGLGraph framework -->
+        <script src="webGLGraph.js"></script>
+        
+        <!-- the Script to init graph library and to provide new data -->
+        <script>
+            //initWebGlGraph(3, 'graph1_canvas:2, graph2_canvas:1, graph3_canvas:1');
+            initWebGlGraph(2, 'graph1_canvas:2');
+            
+            var indexer = 0;
+            function genFakeData() {
+                ++indexer;
+                WebGLGraphs[0].addPoint(indexer, [10 * Math.sin(indexer / 100.0), Math.cos(indexer / 100.0) ] );
+               // WebGLGraphs[1].addPoint(5*indexer, [3 * Math.sin(indexer / 100.0) ] );
+               // WebGLGraphs[2].addPoint(50*indexer, [3 * Math.sin(indexer / 100.0) ] );
+            }
+        
+        setInterval(genFakeData, 100);
+            </script>
+        
+        <!-- this code is for the hide buttons -->
+        <button id="b1" onclick="WebGLGraphs[0].hideGraph(0)">hide 1</button>
+        <button id="b1" onclick="WebGLGraphs[0].hideGraph(1)">hide 2</button>
+    </body>
+</html>
