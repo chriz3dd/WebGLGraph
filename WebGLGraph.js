@@ -1,11 +1,11 @@
-﻿
+
 var WebGLGraphs = [];
 var CANVAS_WIDTH;
 var CANVAS_HEIGHT;
 
 animate();
 
-function initWebGlGraph(functionCount, graphContainer) {
+function initWebGlGraph(graphContainer) {
     
     var containers_main = graphContainer.split(',');
     
