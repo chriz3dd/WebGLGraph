@@ -131,7 +131,7 @@ function CWebGLGraphs( functionCount, container, CANVAS_WIDTH, CANVAS_HEIGHT, gr
         
         for (var qq = 0; qq < functionCount; ++qq) {
             particles[qq] = new THREE.Geometry();
-            hide = 0;
+            hide[qq] = 0;
             colors = [];
             
             for (ii = 0; ii < PARTICLECOUNT * 2 ; ii++) {
@@ -163,7 +163,7 @@ function CWebGLGraphs( functionCount, container, CANVAS_WIDTH, CANVAS_HEIGHT, gr
         animate();
     }
     
-    this.hideGraph= function hideGraph(ii) {
+    this.hideGraph = function hideGraph(ii) {
         hide[ii] = !hide[ii];
     };
     
