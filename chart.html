@@ -17,9 +17,9 @@
     
     <body>
         <!-- the container for your graph -->
-        <div id="graph1_canvas" name="graph1" style="width: 1000px; height: 300px;" />
-        <div id="graph2_canvas" name="graph2"  style="width: 400px; height: 300px;" />
-        <div id="graph3_canvas" name="graph3"  style="width: 400px; height: 400px;" />
+        <div id="graph1_canvas" name="graph1" style="float:left; width: 1000px; height: 200px;" />
+        <div id="graph2_canvas" name="graph2" style="float:left; width: 400px; height: 200px;" />
+        <div id="graph3_canvas" name="graph3" style="float:left; 0px; width: 400px; height: 200px;" />
         
         <!-- this is the webGLGraph framework -->
         <script src="webGLGraph.js"></script>
@@ -36,11 +36,11 @@
                 WebGLGraphs[2].addPoint(50*indexer, [3 * Math.tan(indexer / 100.0) ] );
             }
         
-        setInterval(genFakeData, 100);
+        setInterval(genFakeData, 10);
             </script>
         
         <!-- this code is for the hide buttons -->
         <button id="b1" onclick="WebGLGraphs[0].hideGraph(0)">hide 1</button>
-        <button id="b1" onclick="WebGLGraphs[0].hideGraph(1)">hide 2</button>
+        <button id="b1" onclick="WebGLGraphs[1].hideGraph(0)">hide 2</button>
     </body>
 </html>
