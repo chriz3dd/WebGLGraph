@@ -249,14 +249,20 @@ function CWebGLGraphs( functionCount, container, CANVAS_WIDTH, CANVAS_HEIGHT, gr
         max_y = Math.max.apply(Math, functionPoints[0]);
         min_y = Math.min.apply(Math, functionPoints[0]);
         
+      
         if (functionPoints[0].length > PARTICLECOUNT) {
             particles[0].colors.shift();
             particles[0].colors.push(new THREE.Color(0xff0000));
             
-            functionPoints[0].shift();
-            functionPoints[1].shift();
-            functionPointsTime.shift();
+    	if( functionPoints.length > 1){
+    	   for( var ii = 0; ii<functionPoints.length; ++ii)
+           	     functionPoints[ii].shift();
         }
+    	else	
+    	  functionPoints[0].shift();
+    	  
+     	functionPointsTime.shift();
+     	}
     }
     
     
