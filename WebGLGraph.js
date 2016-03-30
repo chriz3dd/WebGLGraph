@@ -52,11 +52,14 @@ function CWebGLGraphs( functionCount, container, CANVAS_WIDTH, CANVAS_HEIGHT, gr
     
     initGraph(functionCount);
     
-    this.addPoint = function addPoint( x, y)
-    {
+    this.addPoint = function addPoint( x, y ){
         functionPointsTime.push(x);
-        for( ii = 0; ii< y.length; ++ii)
-            functionPoints[ii].push(y[ii]);
+	if( y.length > 1){
+        	for( ii = 0; ii< y.length; ++ii)
+           	    functionPoints[ii].push(y[ii]);
+	}
+	else	
+            functionPoints[0].push(y);
     };
     
     function createArray(length) {
