@@ -256,7 +256,7 @@ function CWebGLGraphs(functionCount, container, canvasWidth, canvasHeight, graph
             functionPointsTime.shift();
         }
     }
-
+    
     function render() {
         renderGraph();
         renderer.render(scene, camera);
