@@ -29,7 +29,7 @@ function animate() {
 
 function CWebGLGraphs(functionCount, container, canvasWidth, canvasHeight, graphTitle) {
     var functionPoints = [], functionPointsTime = [];
-    var particlecount = canvasWidth;
+    var particlecount = canvasWidth * 1.75;
 
     var text2D = THREE_Text.Text2D;
     var textAlign = THREE_Text.textAlign;
@@ -42,7 +42,7 @@ function CWebGLGraphs(functionCount, container, canvasWidth, canvasHeight, graph
     var hide = [];
 
     initGraph(functionCount);
-    
+
     function initGraph(functionCount) {
 
         functionPoints = createArray(functionCount);
@@ -135,7 +135,7 @@ function CWebGLGraphs(functionCount, container, canvasWidth, canvasHeight, graph
         line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: 0x00ff00, opacity: 1.0 }));
         scene.add(line);
     }
-    
+
     function drawLines() {
         var geometry = new THREE.Geometry();
         var vertex;
@@ -147,7 +147,7 @@ function CWebGLGraphs(functionCount, container, canvasWidth, canvasHeight, graph
         line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ linewidth: 1.0, color: 0x0000ff, opacity: 0.2, transparent: true }));
         scene.add(line);
     }
-    
+
     function drawBorder() {
         var rectShape = new THREE.Shape();
         rectShape.moveTo(0, 0);
@@ -161,6 +161,7 @@ function CWebGLGraphs(functionCount, container, canvasWidth, canvasHeight, graph
         var rectMesh = new THREE.Mesh(rectGeom, new THREE.MeshBasicMaterial({ opacity: 0.01, color: 0x0000ff, transparent: true }));
         scene.add(rectMesh);
     }
+
 
     function drawText() {
         var tempText;
@@ -236,11 +237,12 @@ function CWebGLGraphs(functionCount, container, canvasWidth, canvasHeight, graph
         for (var ii = 0; ii < 10; ++ii)
             xText[ii].text = Math.round(functionPointsTime[functionPointsTime.length - 1] - 10 * ii, 2);
 
+        //  tempText.text = functionPoints[0].length;
 
         maxY = Math.max.apply(Math, functionPoints[0]);
         minY = Math.min.apply(Math, functionPoints[0]);
 
-        if (functionPoints[0].length > (particlecount*0.78)) {
+        if (functionPoints[0].length > (particlecount)) {
             particles[0].colors.shift();
             particles[0].colors.push(new THREE.Color(0xff0000));
 
@@ -254,7 +256,7 @@ function CWebGLGraphs(functionCount, container, canvasWidth, canvasHeight, graph
             functionPointsTime.shift();
         }
     }
-    
+
     function render() {
         renderGraph();
         renderer.render(scene, camera);
