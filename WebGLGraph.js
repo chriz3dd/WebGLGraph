@@ -54,7 +54,7 @@ function CWebGLGraphs(functionCount, container, canvasWidth, canvasHeight, graph
 
         camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 20000);
 
-        camera.position.set(-3 * canvasWidth, 0, 3000);
+        camera.position.set(-3 * canvasWidth, 0, 5000);
         camera.up = new THREE.Vector3(0, 1, 0);
         camera.lookAt(-3 * canvasWidth, 0, 0);
 
